@@ -16,15 +16,15 @@ type
     { Public declarations }
   end;
 
-//Timer = class
-//private
-//  FClock: TTimer;
-//  procedure ClockTimer(Sender: TObject);
-//
-//public
-//  constructor Create;
-//end;
-//
+Timer = class
+private
+  FClock: TTimer;
+  procedure ClockTimer(Sender: TObject);
+
+public
+  constructor Create;
+end;
+
 TPoint = object
 private
   x,y:Integer;
@@ -111,9 +111,14 @@ end;
 
 constructor TCircle.Create(a, b, c: Integer; owner: TWinControl);
 var clock:TTimer;
+function ClocTimer(radius:integer):Integer;
+begin
+  radiuc:=radiuc-1;
+end;
 begin
   inherited Create(a,b,owner);
-  radius := c;
+  radius := 250;
+
 //  clock := TTimer.Create(nil);
 //  clock.interval:=1000;
 //  clock.OnTimer := ClockTimer;
@@ -135,27 +140,21 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
   var Point:TPoint; i,n,middleX,middleY:Integer;
     begin
-      for n:=1 to 10 do
-      begin
-
-      i:=250-50;
+//
+      i:=250;
       count :=0;
       middleX:=Form1.ClientWidth div 2;                 //кординпти форми
       middleY:=Form1.Clientheight div 2;
-      Circle.Create(middleX,middleY,i,Form1);                        //по книжіц
+      Circle.Create(middleX,middleY,1,Form1);                        //по книжіц
       Circle.Set_Color(clRed);
       Circle.Show;
 
-      end;
     //  Point.Create(120, 30, Form1);    // старе но непогане
     //  Point.Set_Color(clRed);
     //  Point.Show;
    end;
+//          Sleep(200);
 
-procedure ClockTimer(Sender: TObject);
-begin
- i:=i-30;
-end;
 
 
 end.
